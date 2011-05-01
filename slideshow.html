@@ -4,11 +4,11 @@
 <meta charset="utf-8" />
 <link rel="stylesheet" href="resources/styles.css" />
 <link rel="stylesheet" href="content/css/styles.css" />
-<title>Example Slideshow</title>
+<title>Orion</title>
 </head>
 <body>
 <header>
-    <h1>Example Slide Show</h1>
+    <h1>Orion - the web is my development environment</h1>
     <nav>
         <ul>
             <li><button id="prev-btn" title="Previous slide">Previous Slide</button></li>
@@ -20,84 +20,147 @@
 <div id="deck">
 	<section>
         <hgroup>
-            <h1>Hello, interwebs explorer.</h1>
-            <h2>How to use this thing</h2>
+            <h1>Orion</h1>
+            <h2>The web as the platform for software development</h2>
         </hgroup>
-        <p>Press the right arrow, down arrow, or spacebar to advance; press the left arrow or up arrow to move backward.</p>
-		<p>You can also click the left and right arrows in the control bar at the top.</p>
-    </section>
-    <section>
-        <hgroup>
-            <h1>Intraslide animation</h1>
-            <h2>I'm calling these "actions"</h2>
-        </hgroup>
-        <p>You can hide/reveal content within the slides by giving something a class of "action". Actions are revealed in the order in which they occur in the HTML. Advancing to the next slide will first reveal actions on the page if they exist.</p>
-		<pre>
-&lt;p class=&quot;action&quot;&gt;This will be hidden when the slide loads&lt;/p&gt;
-		</pre>	
-        <ul>
-            <li class="action">Bullet point</li>
-            <li class="action">Another bullet point</li>
-            <li class="action">Yet another bullet point</li>
-            <li class="action">You get the idea</li>
-        </ul>
-    </section>
-    <section>
-        <hgroup>
-            <h1>Custom events</h1>
-            <h2>These may or may not be useful</h2>
-        </hgroup>
-        <p>When a new slide is loaded, a "newSlide" event is fired, containing the number of the slide.</p>
-		<p>There's also an event triggered when a new "action" is revealed. (Take look at your console.)</p>
-		<p></p>
-		<pre>
-//Example usage
-$(&#x27;html&#x27;).bind(&#x27;newSlide&#x27;, function(e,id) { console.log(id) });
-		</pre>
+		<p>Boris Bokowski, IBM Ottawa Labs<br>@bokowski</p>
     </section>
 	<section>
         <hgroup>
-            <h1>Building slides</h1>
-            <h2>It's easy</h2>
+            <h1>Software Development</h1>
+            <h2>Some observations</h2>
         </hgroup>
-        <p>Each slide goes within a <code>section</code> element, like this:</p>
-		<pre>
-&lt;section&gt;
-    &lt;hgroup&gt;
-        &lt;h1&gt;Your heading&lt;/h1&gt;
-        &lt;h2&gt;Your subheading&lt;/h2&gt;
-    &lt;/hgroup&gt;
-    &lt;p&gt;All your slide content...&lt;/p&gt;
-&lt;/section&gt;
-		</pre>
-		<p>You don't have to worry about numbering the slides. The script will count the number of <code>section</code> elements and give each one a numbered ID on page load.</p>
-    </section>
-    <section>
-        <hgroup>
-            <h1>Other details</h1>
-            <h2>Small stuff</h2>
-        </hgroup>
-		<p>The hash updates with each slide.</p>
-		<p>The slideshow itself has 3 dependencies: jQuery, htmlSlides.js, and a stylesheet.</p>
-		<p>The slide script has one option, the option to hide the menu bar at the top:</p>
-		<pre>
-sliderInit({hideMenu: true});
-		</pre>
+        <p>We build our own tools.</p>
+        <p>Not many other professions are like that.</p>
+        <p>We enjoy writing tools!</p>
     </section>
 	<section>
         <hgroup>
-            <h1>That's all</h1>
+            <h1>Command line</h1>
         </hgroup>
-        <p>Get it at <a href="http://github.com/robflaherty/html-slideshow">github</a>.</p>
-        <p>- Rob Flaherty / <a href="http://twitter.com/ravelrumba">@ravelrumba</a> / <a href="mailto:rob@ravelrumba.com">rob@ravelrumba.com</a></p>
+		<p>find . -type f -name '*.png'
+		<p>| sort
+		<p>| perl -n -e 'chomp; /^.*\/([^\/]+)\.png$/; print "\t&lt;section class=\"auto\"&gt;&lt;hgroup&gt;&lt;h1&gt;".$1."&lt;/h1&gt;&lt;/hgroup&gt;&lt;img src=\"content/" .$_. "\"&gt;&lt;/section&gt;\n";'&lt;/p&gt;
+    </section>
+	<section>
+        <hgroup>
+            <h1>Command line</h1>
+        </hgroup>
+        <p>Experts can add tools.</p>
+        <p>Powerful integration through file system and pipes.</p>
+        <p>Scripting.</p>
+        <p>Distribution is a problem.</p>
+    </section>
+	<section>
+        <hgroup>
+            <h1>IDEs</h1>
+        </hgroup>
+        <img src="content/images/eclipse.jpg">
+    </section>
+	<section>
+        <hgroup>
+            <h1>IDEs</h1>
+        </hgroup>
+        <p>Hard to add tools.</p>
+        <p>Deep integration but complex APIs.</p>
+        <p>Distribution is a problem (still).</p>
+    </section>
+	<section>
+        <hgroup>
+            <h1>The Web</h1>
+        </hgroup>
+        <p>Easy to add tools, reachable by URL.</p>
+        <p>Distribution problem is solved!</p>
+        <p>Integration?</p>
+    </section>
+	<section>
+        <hgroup>
+            <h1>Tools on the web</h1>
+        </hgroup>
+        <p>Obvious ones: Bug tracking, planning, builds, Documentation</p>
+        <p>What about core development activities?</p>
+    </section>
+	<section class="auto"><hgroup><h1>1kbgrid.com</h1></hgroup><img src="content/images/1kbgrid.com.png"></section>
+	<section class="auto"><hgroup><h1>bgg.kematzy.com</h1></hgroup><img src="content/images/bgg.kematzy.com.png"></section>
+	<section class="auto"><hgroup><h1>border-image.com</h1></hgroup><img src="content/images/border-image.com.png"></section>
+	<section class="auto"><hgroup><h1>border-radius.com</h1></hgroup><img src="content/images/border-radius.com.png"></section>
+	<section class="auto"><hgroup><h1>build.dojotoolkit.org</h1></hgroup><img src="content/images/build.dojotoolkit.org.png"></section>
+	<section class="auto"><hgroup><h1>build.phonegap.com</h1></hgroup><img src="content/images/build.phonegap.com.png"></section>
+	<section class="auto"><hgroup><h1>css-sprit.es</h1></hgroup><img src="content/images/css-sprit.es.png"></section>
+	<section class="auto"><hgroup><h1>css3generator.com</h1></hgroup><img src="content/images/css3generator.com.png"></section>
+	<section class="auto"><hgroup><h1>css3please.com</h1></hgroup><img src="content/images/css3please.com.png"></section>
+	<section class="auto"><hgroup><h1>csssprites.com</h1></hgroup><img src="content/images/csssprites.com.png"></section>
+	<section class="auto"><hgroup><h1>csstxt.com</h1></hgroup><img src="content/images/csstxt.com.png"></section>
+	<section class="auto"><hgroup><h1>csstypeset.com</h1></hgroup><img src="content/images/csstypeset.com.png"></section>
+	<section class="auto"><hgroup><h1>favicon-generator.org</h1></hgroup><img src="content/images/favicon-generator.org.png"></section>
+	<section class="auto"><hgroup><h1>gist.github.com</h1></hgroup><img src="content/images/gist.github.com.png"></section>
+	<section class="auto"><hgroup><h1>gradient-scanner.com</h1></hgroup><img src="content/images/gradient-scanner.com.png"></section>
+	<section class="auto"><hgroup><h1>gradients.glrzad.com</h1></hgroup><img src="content/images/gradients.glrzad.com.png"></section>
+	<section class="auto"><hgroup><h1>grid.mindplay.dk</h1></hgroup><img src="content/images/grid.mindplay.dk.png"></section>
+	<section class="auto"><hgroup><h1>gridinator.com</h1></hgroup><img src="content/images/gridinator.com.png"></section>
+	<section class="auto"><hgroup><h1>gskinner.com:RegExr:</h1></hgroup><img src="content/images/gskinner.com:RegExr:.png"></section>
+	<section class="auto"><hgroup><h1>hurl.it</h1></hgroup><img src="content/images/hurl-it.png"></section>
+	<section class="auto"><hgroup><h1>initializr.com</h1></hgroup><img src="content/images/initializr.com.png"></section>
+	<section class="auto"><hgroup><h1>jsbeautifier.org</h1></hgroup><img src="content/images/jsbeautifier.org.png"></section>
+	<section class="auto"><hgroup><h1>jsfiddle.net</h1></hgroup><img src="content/images/jsfiddle.net.png"></section>
+	<section class="auto"><hgroup><h1>jsonformat.com</h1></hgroup><img src="content/images/jsonformat.com.png"></section>
+	<section class="auto"><hgroup><h1>jsonformatter.curiousconcept.com</h1></hgroup><img src="content/images/jsonformatter.curiousconcept.com.png"></section>
+	<section class="auto"><hgroup><h1>jsperf.com</h1></hgroup><img src="content/images/jsperf.com.png"></section>
+	<section class="auto"><hgroup><h1>lab.xms.pl:markup-generator:</h1></hgroup><img src="content/images/lab.xms.pl:markup-generator:.png"></section>
+	<section class="auto"><hgroup><h1>marijnhaverbeke.nl:uglifyjs</h1></hgroup><img src="content/images/marijnhaverbeke.nl:uglifyjs.png"></section>
+	<section class="auto"><hgroup><h1>pagespeed.googlelabs.com</h1></hgroup><img src="content/images/pagespeed.googlelabs.com.png"></section>
+	<section class="auto"><hgroup><h1>pastebin-ca</h1></hgroup><img src="content/images/pastebin-ca.png"></section>
+	<section class="auto"><hgroup><h1>pastebin.com</h1></hgroup><img src="content/images/pastebin.com.png"></section>
+	<section class="auto"><hgroup><h1>pythex.appspot.com</h1></hgroup><img src="content/images/pythex.appspot.com.png"></section>
+	<section class="auto"><hgroup><h1>regexpal.com</h1></hgroup><img src="content/images/regexpal.com.png"></section>
+	<section class="auto"><hgroup><h1>regextester.com</h1></hgroup><img src="content/images/regextester.com.png"></section>
+	<section class="auto"><hgroup><h1>saucelabs.com:ondemand</h1></hgroup><img src="content/images/saucelabs.com:ondemand.png"></section>
+	<section class="auto"><hgroup><h1>spritegen.website-performance.org</h1></hgroup><img src="content/images/spritegen.website-performance.org.png"></section>
+	<section class="auto"><hgroup><h1>tools.netshiftmedia.com:regexlibrary:</h1></hgroup><img src="content/images/tools.netshiftmedia.com:regexlibrary:.png"></section>
+	<section class="auto"><hgroup><h1>tutti.tobyho.com</h1></hgroup><img src="content/images/tutti.tobyho.com.png"></section>
+	<section class="auto"><hgroup><h1>txt2re.com</h1></hgroup><img src="content/images/txt2re.com.png"></section>
+	<section class="auto"><hgroup><h1>validator.linkeddata.org</h1></hgroup><img src="content/images/validator.linkeddata.org.png"></section>
+	<section class="auto"><hgroup><h1>validator.w3.org</h1></hgroup><img src="content/images/validator.w3.org.png"></section>
+	<section class="auto"><hgroup><h1>www.bodurov.com:JsonFormatter:</h1></hgroup><img src="content/images/www.bodurov.com:JsonFormatter:.png"></section>
+	<section class="auto"><hgroup><h1>www.colorzilla.com:gradient-editor:</h1></hgroup><img src="content/images/www.colorzilla.com:gradient-editor:.png"></section>
+	<section class="auto"><hgroup><h1>www.cssmenumaker.com</h1></hgroup><img src="content/images/www.cssmenumaker.com.png"></section>
+	<section class="auto"><hgroup><h1>www.csssorter.appspot.com</h1></hgroup><img src="content/images/www.csssorter.appspot.com.png"></section>
+	<section class="auto"><hgroup><h1>www.cynthiasays.com</h1></hgroup><img src="content/images/www.cynthiasays.com.png"></section>
+	<section class="auto"><hgroup><h1>www.jslint.com</h1></hgroup><img src="content/images/www.jslint.com.png"></section>
+	<section class="auto"><hgroup><h1>www.pagecolumn.com</h1></hgroup><img src="content/images/www.pagecolumn.com.png"></section>
+	<section class="auto"><hgroup><h1>www.patternify.com</h1></hgroup><img src="content/images/www.patternify.com.png"></section>
+	<section class="auto"><hgroup><h1>www.smushit.com:ysmush.it:</h1></hgroup><img src="content/images/www.smushit.com:ysmush.it:.png"></section>
+	<section class="auto"><hgroup><h1>www.spritebox.net</h1></hgroup><img src="content/images/www.spritebox.net.png"></section>
+	<section class="auto"><hgroup><h1>www.spry-soft.com:grids:</h1></hgroup><img src="content/images/www.spry-soft.com:grids:.png"></section>
+	<section class="auto"><hgroup><h1>www.squarefree.com:shell</h1></hgroup><img src="content/images/www.squarefree.com:shell.png"></section>
+	<section class="auto"><hgroup><h1>www.tabsgenerator.com</h1></hgroup><img src="content/images/www.tabsgenerator.com.png"></section>
+	<section class="auto"><hgroup><h1>www.wannabegirl.org:firdamatic</h1></hgroup><img src="content/images/www.wannabegirl.org:firdamatic.png"></section>
+	<section>
+        <hgroup>
+            <h1>Demo time</h1>
+        </hgroup>
+    </section>
+	<section>
+        <hgroup>
+            <h1>Thank you!</h1>
+        </hgroup>
     </section>
 </div>
 <!-- /deck -->
 <script src="resources/jquery-1.4.2.min.js"></script>
 <script src="resources/htmlSlides.js"></script>
 <script>
-//This is just to demo the custom events
-$('html').bind('newSlide', function(e,id) { console.log('New slide event, slide number ' + id)});
+var timeouts = [];
+$('html').bind('newSlide', function(e,id,oldid,element) { 
+	for(var i=0; i<timeouts.length; i++) {
+		window.clearTimeout[timeouts[i]];
+	}
+	if (id === oldid+1) {
+		if($(element).hasClass("auto")) {
+			timeouts.push(setTimeout(function(){changeSlide(id+1);}, 1000));
+		}
+	}
+ });
 $('html').bind('newAction', function(e,id) { console.log('New action event, action number ' + id)});
 </script>
 </body>

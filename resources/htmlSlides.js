@@ -4,7 +4,8 @@
  * Copyright (c) 2010 Rob Flaherty 
  * MIT Licensed: http://www.opensource.org/licenses/mit-license.php
  */
- 
+/*global location $ setTimeout */ 
+var changeSlide;
 (function() {
     
     //Initialize variables and cache jQuery objects
@@ -16,12 +17,41 @@
         nextButton = $('#next-btn'),
         slideNumber = $('#slide-number');
     
+    //Main "change slide" function
+    changeSlide = function(id) {
+        var previousSlide = currentSlide;
+        currentSlide = id;
+        var slideID = '#slide' + id;        
+        deck.find('.slide-selected').removeClass('slide-selected');
+        $(slideID).addClass('slide-selected');
+        
+        //Update menu bar
+        slideNumber.html(currentSlide);
+        
+        //Update hash      
+        location.hash = id;
+        
+        //Trigger newSlide event
+        var slideElement = $(slideID)[0];
+        $('html').trigger("newSlide", [id, previousSlide, slideElement]);
+        
+        //Hide arrows on first and last slides
+        if ((id !== 1) && (id !== slideCount)) {
+            prevButton.css('visibility', 'visible');
+            nextButton.css('visibility', 'visible');
+        } else if (id === 1) {
+            prevButton.css('visibility', 'hidden');
+        } else if (id === slideCount) {
+            nextButton.css('visibility', 'hidden');
+        }
+    };
+
     var sliderInit = function(options) {
         
         //Add ids and classes to slides
         $('#deck > section').each(function(index,el){
             $(el).attr('id', 'slide' + (index +1));
-            $(el).attr('class', 'slide');     
+            $(el).addClass('slide');     
         });
 
         //Set total slide count in header
@@ -50,46 +80,18 @@
         changeSlide(currentSlide);
         
     };
-   
-    //Main "change slide" function
-    function changeSlide(id) {
-        var slideID = '#slide' + id;        
-        deck.find('.slide-selected').removeClass('slide-selected');
-        $(slideID).addClass('slide-selected');
-        
-        //Update menu bar
-        slideNumber.html(currentSlide);
-        
-        //Update hash      
-        location.hash = id;
-        
-        //Trigger newSlide event
-        $('html').trigger("newSlide", id);
-        
-        //Hide arrows on first and last slides
-        if ((id != 1) && (id != slideCount)) {
-            prevButton.css('visibility', 'visible');
-            nextButton.css('visibility', 'visible');
-        } else if (id == 1) {
-            prevButton.css('visibility', 'hidden');
-        } else if (id == slideCount) {
-            nextButton.css('visibility', 'hidden');
-        }
-    }
-    
+       
     //Next slide
     function prevSlide() {
         if (currentSlide > 1) {
-            currentSlide--;
-            changeSlide(currentSlide);
+            changeSlide(currentSlide - 1);
         }     
     }
     
     //Previous slide
     function nextSlide() {
         if (currentSlide < slideCount) {
-            currentSlide++;
-            changeSlide(currentSlide); 
+            changeSlide(currentSlide + 1); 
         }
     }
     
@@ -115,6 +117,16 @@
     //Keyboard controls
     function keyControls(event) {
         switch(event.keyCode) {
+        //fn-left, fn-up keys
+        case 33:
+        case 36:
+        changeSlide(1);
+        break;
+        //fn-right, fn-down keys
+        case 34:
+        case 35:
+        changeSlide(slideCount);
+        break;
         //Left and up keys
         case 37:
         case 38:
@@ -126,6 +138,7 @@
         case 40:
         showActions();
         break;
+        default: console.log("ignored key " + event.keyCode);
         }
     }    
     
@@ -139,4 +152,4 @@
         sliderInit({hideMenu: true});
     });
     
-})();
+}());
